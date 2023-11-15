@@ -1,0 +1,34 @@
+# procedural-programming
+Config files for my GitHub profile.
+def header():
+    print("The Total Caclulater program")
+def float_():
+    while True:
+         try:
+            price_float =  float(input("enter price:"))
+            return price_float
+              
+         except ValueError:
+             print("invalid decimal error")
+        
+def int_():
+    while True:
+        try:
+            price_int=int(input("enter quantity:"))
+            return price_int
+        except ValueError:
+            print("invalid integer please try again")
+    
+
+              
+        
+def main():
+    header()
+    float_()
+    int_()
+        
+if __name__ == '__main__':
+    main()
+    
+            
+        
