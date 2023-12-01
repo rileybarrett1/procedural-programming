@@ -1,0 +1,14 @@
+def try_():
+    while True:
+        try:
+            number= int(input("number:"))
+            if number<0:
+                raise ValueError("invalid entry number must be 0 or greater")
+            
+        except ValueError as e:
+            print("invalid entry please try again")
+            print(e.args[0])
+            
+            
+            
+try_()
