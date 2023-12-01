@@ -1,0 +1,22 @@
+import pickle
+def temp_data() -> list:
+    file_list=[]
+    with open("advent#1_input.txt","r",newline="") as file:
+         for lines in file:
+             file_list.append(lines.strip("\r\n"))
+    return file_list
+
+def pickle_file():
+    with open("advent#1_input.bin","wb") as file_handle:
+        pickle.dump(temp_data(),file_handle)
+        
+def pickle_read() -> list:
+    with open("advent#1_input.bin","rb") as file_handle:
+        return pickle.load(file_handle)
+    
+    
+print(pickle_read())
+if __name__=="__main__":
+
+    pickle_file()
+    pickle_read()
