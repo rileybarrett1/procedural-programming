@@ -1,0 +1,28 @@
+import pickle
+
+def bird_counter():
+    try:
+        with open('bird_data.pickle', 'rb') as file:
+            bird_dict = pickle.load(file)
+    except FileNotFoundError:
+        bird_dict = {}
+
+    while True:
+        bird_name = input("\nEnter name of bird (enter 'x' to exit): ")
+        if bird_name.lower() == 'x':
+            break
+
+        bird_dict[bird_name] = bird_dict.get(bird_name, 0) + 1
+
+    sorted_birds = sorted(bird_dict.items())
+
+    print("\nName\tCount")
+    print("----\t-----")
+    for bird, count in sorted_birds:
+        print(f"{bird}\t\t{count}")
+
+    with open('bird_data.pickle', 'wb') as file:
+        pickle.dump(bird_dict, file)
+
+if __name__ == "__main__":
+    bird_counter()
