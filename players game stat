@@ -1,0 +1,44 @@
+# Initial dictionary of players with their stats
+players_stats = {'Elizabeth': {'Wins': 11, 'Losses': 3, 'Ties': 22},
+    'Joel': {'Wins': 32, 'Losses': 14, 'Ties': 17},
+    'Mike': {'Wins': 8, 'Losses': 19, 'Ties': 11}}
+
+def display_players():
+    # Display alphabetical list of player names
+    print("\nALL PLAYERS:")
+    for player in sorted(players_stats.keys()):
+        print(player)
+
+def view_player_stats(player_name):
+    # View the stats for the specified player
+    if player_name in players_stats:
+        stats = players_stats[player_name]
+        print("\nSTATS FOR", player_name.upper())
+        print("Wins:", stats['Wins'])
+        print("Losses:", stats['Losses'])
+        print("Ties:", stats['Ties'])
+    else:
+        print("There is no player named", player_name + ".")
+
+def game_state_program():
+    while True:
+        display_players()
+       
+        # Get player name from the user
+        player_name = input("\nEnter a player name:").capitalize()
+
+        # Check if the player exists in the dictionary
+        if player_name in players_stats:
+            # Display player's stats
+            view_player_stats(player_name)
+        else:
+            print("There is no player named", player_name + ".")
+
+        # Ask if the user wants to continue
+        continue_input = input("Continue? (y/n): ").lower()
+        if continue_input != 'y':
+            print("Bye!")
+            break
+
+# Run the game state program
+game_state_program()
